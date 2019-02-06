@@ -1,4 +1,4 @@
-#given a feature, returns all of the phones that have that feature
+#given a feature, returns all of the phones that have those features
 def phoneFinder(givenFeatures):
     featureDict = {"p": ["+consonantal", "-sonorant", "-continuant", 
                          "-delayed release", "-approximant", "-tap", 
@@ -83,8 +83,12 @@ def phoneFinder(givenFeatures):
                   "u" : ["0ALLCONSONANT", "+high", "-low", "+tense", "-front", "+back", "+round"],}
     phonesWithTheFeature = []
     for keyPhone, valueFeatures in featureDict.items():
-        for f1 in givenFeatures:
-            for f2 in valueFeatures:
-                if f1 == f2:
-                    phonesWithTheFeature.append(keyPhone)
+        goodPhoneValue = 0
+        for f1 in valueFeatures:
+            for f2 in givenFeatures:
+                if f2 == f1:
+                    goodPhoneValue = goodPhoneValue + 1
+        if goodPhoneValue == len(givenFeatures):
+            phonesWithTheFeature.append(keyPhone)
     return phonesWithTheFeature
+        
