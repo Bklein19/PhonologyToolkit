@@ -1,0 +1,35 @@
+# returns the list of phonetic features of a letter (TODO ipa symbol)
+def featureDispenser():
+    allFeatures = ["syllabic",
+    "stress",
+    "long",
+    "consonantal",
+    "sonorant",
+    "continuant",
+    "delayed release",
+    "approximant",
+    "tap",
+    "trill",
+    "nasal",
+    "voice",
+    "spread glottis",
+    "constricted glottis",
+    "labial",
+    "round",
+    "labiodental",
+    "coronal",
+    "anterior",
+    "distributed",
+    "strident",
+    "lateral",
+    "DORSAL",
+    #for vowels (and glides)
+    "high",
+    "low",
+    "front",
+    "back",
+    "tense"]
+    
+    print(allFeatures)
+
+featureDispenser()
