@@ -1,4 +1,4 @@
-# returns the list of phonetic features of an IPA symbol **CAN ONLY HANDLE ROMAN LETTERS** (TODO IPA symbol)
+# returns the list of phonetic features of an IPA symbol **CAN ONLY HANDLE ROMAN LETTERS** (TODO obscure IPA symbols)
 def featureDispenser(inputChar):
                     #bilabial
     featureDict = {"p": ["+consonantal", "-sonorant", "-continuant", 
@@ -68,40 +68,22 @@ def featureDispenser(inputChar):
                          "-trill", "-nasal", "+voice", "-spread glottis",
                          "-constricted glottis", "+labial", "-round", "-labiodental",
                          "+coronal", "+anterior", "-distributed", "-strident", "+lateral",
-                         "dorsal", "0ALLVOWEL"]}
+                         "dorsal", "0ALLVOWEL"], 
+                  #vowels
+                  "a" : ["0ALLCONSONANT", "-high", "+low", "0tense", "-front", "-back", "-round"],
+                  "e" : ["0ALLCONSONANT", "-high", "-low", "+tense", "+front", "-back", "-round"],
+                  "i" : ["0ALLCONSONANT", "+high", "-low", "+tense", "+front", "-back", "-round"],
+                  "o" : ["0ALLCONSONANT", "-high", "-low", "+tense", "-front", "+back", "+round"],
+                  "u" : ["0ALLCONSONANT", "+high", "-low", "+tense", "-front", "+back", "+round"],}
                     
     
-    allFeatures = ["syllabic",
-    "stress",
-    "long",
-    "consonantal",
-    "sonorant",
-    "continuant",
-    "delayed release",
-    "approximant",
-    "tap",
-    "trill",
-    "nasal",
-    "voice",
-    "spread glottis",
-    "constricted glottis",
-    "labial",
-    "round",
-    "labiodental",
-    "coronal",
-    "anterior",
-    "distributed",
-    "strident",
-    "lateral",
-    "DORSAL",
-    #for vowels (and glides)
-    "high",
-    "low",
-    "front",
-    "back",
-    "tense"]
+    allFeatures = ["syllabic","stress", "long", "consonantal", "sonorant", "continuant", 
+                   "delayed release","approximant", "tap","trill","nasal","voice","spread glottis",
+                   "constricted glottis","labial","round", "labiodental", "coronal",
+                   "anterior", "distributed", "strident", "lateral", "dorsal",
+                    
+                   #for vowels (and glides)
+                    "high","low","front","back","tense"]
     
     
-    print(featureDict[inputChar])
-
-featureDispenser("m")
+    return(featureDict[inputChar])
