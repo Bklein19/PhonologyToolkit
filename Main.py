@@ -1,3 +1,4 @@
+#TODO: implement feature distinction from phoneticFeatures method
 def minPairFinder(strArray):
     result = []
     for i in range(len(strArray)):
@@ -30,7 +31,7 @@ print(minPairFinder(["sad", "cad", "bad", "bar", "tall", "fall", "doll", "mall"]
 
 #--------------------------------------------------------------------------------------------------
 
-#To be added upon
+#ToDo: utilize feature method for this implementation
 def isNearMinimalPair(str1, str2):
     discrepancy = False
     for i in range(len(str1)):
