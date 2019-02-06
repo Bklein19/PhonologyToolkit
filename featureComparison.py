@@ -6,6 +6,7 @@ def featureComparison(matrix1, matrix2):
         for otherFeature in matrix2:
             if otherFeature == feature:
                 containsfeature = True;
+                break
         if containsfeature == False:
             differentFeatures.append(feature)
     return differentFeatures
