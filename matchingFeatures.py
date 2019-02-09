@@ -1,4 +1,4 @@
-#compares n matrices and returns matching features from the given phones
+#compares n matrices and returns matching features from the given phones using a divide and conquer method
 def matchingFeatures(matrices):
     if len(matrices) == 1:
         return matrices[0]
@@ -15,6 +15,7 @@ def matchingFeatures(matrices):
             matrixIndex = (matrixIndex + 2)
     return sameFeatures
 
+#compares two feature matrices and returns their shared features
 def matchingFeaturesHelper(matrix1, matrix2):
     sameFeatures = []
     for feature in matrix1:
