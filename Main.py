@@ -11,7 +11,7 @@ def minPairFinder(strArray):
 
 def isMinimalPair(str1, str2):
     discrepancy = False
-    if len(str1) != len(str2):
+    if len(str1) != len(str2) or len(str1) < 2:
         return False
     for i in range(len(str1)):
         #first discrepancy
