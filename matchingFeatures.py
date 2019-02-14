@@ -38,3 +38,36 @@ print(matchingFeatures([featureDispenser("m"), featureDispenser("k"),  featureDi
 
 print("TEST 4")
 print(matchingFeatures([featureDispenser("m"), featureDispenser("k"),  featureDispenser("l"), featureDispenser("h"), featureDispenser("i")]))
+
+#Identifies the features of n matrices that are different
+def nonMatchingFeatures(matrices):
+    if len(matrices) == 1:
+        return matrices[0]
+    elif len(matrices) == 2:
+        return nonMatchingFeaturesHelper(matrices[0], matrices[1])
+    elif len(matrices) == 3:
+        return nonMatchingFeaturesHelper(matchingFeatures([matrices[0], matrices[1]]), matrices[2])
+    else:
+        tempDifFeatures = nonMatchingFeaturesHelper(matrices[0], matrices[1]);
+        matrixIndex = 2
+        for matrixIndex in range(len(matrices) - 1):
+            difFeatures = nonMatchingFeatures([tempDifFeatures, nonMatchingFeaturesHelper(matrices[matrixIndex],
+                                                                                     matrices[matrixIndex + 1])])
+            matrixIndex = (matrixIndex + 2)
+    return difFeatures
+
+
+#Identifies the different features of 2 matrices
+def nonMatchingFeaturesHelper(matrix1, matrix2):
+    difFeatures = []
+    for feature in matrix1:
+        containsfeature = False;
+        for otherFeature in matrix2:
+            if otherFeature == feature:
+                containsfeature = True;
+        if containsfeature == False:
+            difFeatures.append(feature)
+    return difFeatures
+
+print("Test 1 NONMATCHING")
+print(nonMatchingFeatures([featureDispenser("m"), featureDispenser("n")]))
